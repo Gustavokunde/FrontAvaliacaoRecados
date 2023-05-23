@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API - Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./main.js"></script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div>
+      <h1 id="titulo">Cadastro</h1>
+    </div>
+
+    <form onsubmit="cadastrarUsuario(event)">
+      <fieldset class="grupo">
+        <div class="campo">
+          <label for="nome">Nome:</label>
+          <input id="nome" placeholder="Nome" required />
+        </div>
+        <div class="campo">
+          <label for="email">Email:</label>
+          <input id="email" type="email" placeholder="Email" />
+        </div>
+        <div class="campo">
+          <label for="senha">Senha:</label>
+          <input id="senha" type="password" placeholder="Senha" />
+        </div>
+        <button type="submit" class="btn">Cadastrar</button>
+      </form>
+
+      <div>
+        <h1 id="titulo">Login</h1>
+      </div>
+
+      <fieldset class="grupo">
+        <form onsubmit="entrar(event)">
+          <div class="campo">
+            <label for="nome">Email:</label>
+            <input type="text" id="emailLogin" placeholder="email" />
+          </div>
+          <div class="campo">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senhaLogin" placeholder="senha" />
+          </div>
+          <button type="submit" class="btn" href="recado.html">Entrar</button>
+        </form>
+      </fieldset>
+    </body>
+  </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./main.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <title>Página de Login</title>
+  </head>
+  <body>
+    <div>
+      <h1 id="titulo">Criar Recado</h1>
+      <br>
+    </div>
+
+    <fieldset class="grupo">
+      <form onsubmit="criarRecado(event)">
+        <div class="campo">
+          <input type="text" id="titulo" placeholder="Título" />
+        </div>
+        <div class="campo">
+          <input type="text" id="descricao" placeholder="Descrição" />
+        </div>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+
+      <fieldset class="grupo">
+        <button type="button" class="btn"
+          onclick="mostrarRecados()">Mostrar Recados</button>
+        <div class="campo">
+          <br><br><br><br>
+          <table>
+            <thead>
+              <th>Título</th>
+              <th>Descrição</th>
+            </thead>
+            <tbody id="corpoRecados">
+            </tbody>
+          </table>
+        </div>
+      </fieldset>
+
+      <form onsubmit="atualizarRecado(event)" class="hidden" id="formEdicao">
+        <fieldset>
+          <label for="titulo">Título</label>
+          <input id="tituloEdicaoForm" />
+        </fieldset>
+        <fieldset>
+          <label for="descricao">Descrição</label>
+          <input id="descricaoEdicaoForm" />
+        </fieldset>
+        <input id="idRecado" class="hidden" />
+        <button id="editarRecado">Editar recado</button>
+      </form>
+      <div id="containerCards"></div>
+      <section id="paginator">
+        <button onclick="paginaAnterior()">anterior</button>
+        <button onclick="proximaPagina()">proximo</button>
+      </section>
+    </body>
+  </html>
