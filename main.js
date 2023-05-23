@@ -62,18 +62,16 @@ let recados = [];
 let page = 1;
 let pages = 0;
 let totalRecados = 0;
-function paginaAnterior() {
-  if (page > 1) {
-    page--;
-    mostrarRecados(page);
-  }
-}
 
-function proximaPagina() {
-  if (pages > page) {
-    page++;
-    mostrarRecados(page);
-  }
+function inserirPaginas(pages) {
+  let pagesContainer = document.getElementById("pages");
+  pagesContainer.innerHTML = "";
+  //abaixo sera criado um array com as paginas
+  Array.from(Array(pages).keys()).forEach((page) => {
+    pagesContainer.innerHTML += `<button onclick=mostrarRecados(\'${
+      page + 1
+    }\')>${page + 1}</button>`;
+  });
 }
 
 function mostrarRecados(page) {
@@ -89,6 +87,9 @@ function mostrarRecados(page) {
       pages = res.data.pages;
       let cards = document.getElementById("containerCards");
       cards.innerHTML = "";
+
+      inserirPaginas(pages);
+
       recados.forEach((recado) => {
         cards.innerHTML += `<div class="card">
         <span>${recado.titulo}</span> 
@@ -100,6 +101,20 @@ function mostrarRecados(page) {
     .catch((err) => {
       alert(err);
     });
+}
+
+function paginaAnterior() {
+  if (page > 1) {
+    page--;
+    mostrarRecados(page);
+  }
+}
+
+function proximaPagina() {
+  if (pages > page) {
+    page++;
+    mostrarRecados(page);
+  }
 }
 
 function mostrarEdicaoRecado(titulo, descricao, id) {
